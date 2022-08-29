@@ -1,6 +1,6 @@
 # [:scream: Runtime Terror] Template de Arquitetura Hexagonal 
 
-:gem: Esta aplicação é um exemplo de implementação do nosso [framework de desenvolvimento](https://sensedia.atlassian.net/wiki/spaces/OI/pages/2730983442/Framework+de+Desenvolvimento),
+:gem: Esta aplicação é um exemplo de implementação do nosso framework de desenvolvimento,
 que fala sobre arquitetura hexagonal + TDD.
 
 O caso de uso considera que dejamos cadastrar, cancelar e encontrar pedidos (_OrderDto_) que possuem uma
@@ -35,7 +35,6 @@ possui nome e preço.
 ### :arrow_down: Instalação
 
 > :warning: Já ter instalado, Java 11, Maven e Lombok. Para mais dicas consultar a coluna
-> [_Recursos indispensáveis para o trabalho_](https://sensedia.atlassian.net/wiki/spaces/OI/pages/2680553553/Welcome+to+runtime-terror+team).
 
 :busts_in_silhouette: Clonar este repositório na sua máquina.
 
@@ -62,7 +61,3 @@ possui nome e preço.
 ## :handshake: Como contribuir
 
 :rocket: Abrir uma pull request.
-
-:card_box: Seguir nossas [metodologias e processos de desenvolvimento](https://sensedia.atlassian.net/wiki/spaces/OI/pages/2693366191/Metodologias+Processos+de+Desenvolvimento).
-
-
