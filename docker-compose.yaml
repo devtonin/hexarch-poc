@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: order-system
+
+  localstack:
+    container_name: "localstack"
+    image: localstack/localstack:latest
+    network_mode: bridge
+    ports:
+      - "9999:8080"                      # Map localhost:9999 to container's 8080
+      - "127.0.0.1:4566:4566"            # LocalStack Edge Proxy / All services are availabe here
+    environment:
+      - SERVICES=sqs,sns                 # Make available only SQS and SNS
+      - DEBUG=1                          # Show me all of the logs!
+      - DATA_DIR=/tmp/localstack/data    # Save the data created while docker was running
+    volumes:
+      - "./.localstack:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"

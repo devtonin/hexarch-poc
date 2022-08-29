@@ -1,0 +1,26 @@
+cloud:
+  aws:
+    stack:
+      auto: false
+    region:
+      static: us-east-1
+    queues:
+      uri: http://localhost:4566
+      toPreparation:
+        name: insurance-multi-tenant-testing
+
+spring:
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: mongodb://admin:admin@localhost:27017/order-system?authSource=admin
+
+#actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

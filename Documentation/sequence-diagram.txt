@@ -1,0 +1,56 @@
+title Order System
+
+actor "Order Executor" as executor
+actor "Order Supplier" as supplier
+participant ProductServiceImpl
+participant ProductRepository
+participant OrderServiceImpl
+participant OrderRepository
+participant OrderProducer
+
+activate ProductServiceImpl
+supplier->ProductServiceImpl:createProduct
+activate ProductRepository
+ProductServiceImpl->ProductRepository:save
+supplier<--ProductServiceImpl:product
+
+supplier->ProductServiceImpl:findProductById
+ProductServiceImpl->ProductRepository:findProductById
+ProductRepository-->ProductServiceImpl:product
+
+supplier->ProductServiceImpl:deleteProduct
+ProductServiceImpl->ProductRepository:delete
+
+deactivateafter ProductRepository
+deactivateafter ProductServiceImpl
+
+activate OrderServiceImpl
+executor->OrderServiceImpl:createOrder
+activate OrderRepository
+activate ProductServiceImpl
+OrderServiceImpl->ProductServiceImpl:findProductById
+ProductServiceImpl-->OrderServiceImpl:product
+note over ProductServiceImpl: If a product is not found a Domain Exception will be raised.
+deactivateafter ProductServiceImpl
+OrderServiceImpl->OrderRepository:save
+activate OrderProducer
+OrderServiceImpl->OrderProducer:send
+note over OrderProducer: If the event can't be delivered the error MUST be logged.
+executor<--OrderServiceImpl:order
+
+executor->OrderServiceImpl:findOrderById
+OrderServiceImpl->OrderRepository:findOrderById
+OrderServiceImpl<--OrderRepository:order
+note over OrderServiceImpl: If an order is not found a Domain Exception will be raised.
+executor<--OrderServiceImpl:order
+
+
+executor->OrderServiceImpl:cancelOrder
+OrderServiceImpl->OrderRepository:findOrderById
+OrderServiceImpl<--OrderRepository:order
+note over OrderServiceImpl: If an order is not found a Domain Exception will be raised.
+OrderServiceImpl->OrderRepository:save
+OrderServiceImpl->OrderProducer:send
+note over OrderProducer: If the event can't be delivered the error MUST be logged.
+executor<--OrderServiceImpl:order
+deactivate OrderProducer
