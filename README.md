@@ -1,4 +1,4 @@
-# [:scream: Runtime Terror] Template de Arquitetura Hexagonal 
+# Template de Arquitetura Hexagonal 
 
 :gem: Esta aplicação é um exemplo de implementação do nosso framework de desenvolvimento,
 que fala sobre arquitetura hexagonal + TDD.
@@ -30,7 +30,7 @@ possui nome e preço.
 
 :cloud: Localstack (open-source mock para os serviços reais da AWS)
 
-## :play_pause: Instalação e execução
+## Instalação e execução
 
 ### :arrow_down: Instalação
 
@@ -57,7 +57,3 @@ possui nome e preço.
 :first_quarter_moon: Executar a aplicação em sua IDE favorita.
 
 > :warning: Ao terminar a execução, lembre de desligar a instância do seu docker via `docker-compose down`.
-
-## :handshake: Como contribuir
-
-:rocket: Abrir uma pull request.
