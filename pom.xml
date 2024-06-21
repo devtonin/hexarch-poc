@@ -8,7 +8,7 @@
 		<relativePath />
 	</parent>
 	<groupId>com.devtonin.opin</groupId>
-	<artifactId>hexarch</artifactId>
+	<artifactId>hexarch-poc</artifactId>
 	<version>0.0.12</version>
 	<name>hexarch</name>
 	<description>Projeto template para arquitetura hexagonal</description>
