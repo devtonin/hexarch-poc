@@ -5,13 +5,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.6.7</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath />
 	</parent>
-	<groupId>com.sensedia.opin</groupId>
+	<groupId>com.devtonin.opin</groupId>
 	<artifactId>hexarch</artifactId>
 	<version>0.0.12</version>
 	<name>hexarch</name>
-	<description>OPIN-354 - Projeto template para arquitetura hexagonal</description>
+	<description>Projeto template para arquitetura hexagonal</description>
 
 	<properties>
 		<java.version>11</java.version>
